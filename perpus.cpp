@@ -40,7 +40,7 @@ string dateToString(const tm& t) {
     return string(buffer);
 }
 
-// Fungsi untuk membaca data peminjaman buku dari file CSV
+// Fungsi untuk membaca data peminjaman buku dari file data peminjam
 vector<Peminjaman> bacaDataPeminjaman(const string& filename) {
     vector<Peminjaman> peminjamanList;
     ifstream file(filename);
@@ -81,7 +81,7 @@ vector<Peminjaman> bacaDataPeminjaman(const string& filename) {
     return peminjamanList;
 }
 
-// Fungsi untuk menulis ulang data peminjaman ke file CSV
+// Fungsi untuk menulis ulang data peminjaman ke file data peminjam
 void tulisDataPeminjaman(const string& filename, const vector<Peminjaman>& peminjamanList) {
     ofstream file(filename);
     if (!file) {
@@ -124,7 +124,7 @@ void catatPeminjaman(const string& filename) {
     // Menambahkan peminjaman baru ke dalam daftar
     peminjamanList.push_back({namaPeminjam, judulBuku, tanggalPeminjaman, tanggalPengembalian});
 
-    // Menulis ulang data ke file CSV
+    // Menulis ulang data ke file data peminjam
     tulisDataPeminjaman(filename, peminjamanList);
     cout << "Tanggal pengembalian paling lambat: " << tanggalPengembalian << endl;
     cout << "Data peminjaman telah disimpan di " << filename << endl;
@@ -165,7 +165,7 @@ void catatPengembalian(const string& filename) {
         peminjamanBaru.push_back(peminjaman);
     }
 
-    // Menulis ulang data ke file CSV
+    // Menulis ulang data ke file data peminjam
     tulisDataPeminjaman(filename, peminjamanBaru);
     if (!ditemukan) {
         cout << "Peminjaman tidak ditemukan!" << endl;
